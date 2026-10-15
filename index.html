@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ms" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walimatulurus Shahira Erna & Aiman</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        function openWeddingInvitation() {
+            const cover = document.getElementById('openCover');
+            if (!cover) return;
+            cover.classList.add('cover-hidden');
+            document.body.classList.remove('invitation-locked');
+            window.setTimeout(() => cover.remove(), 700);
+            
+            // Play audio if available
+            const audio = document.getElementById('bgMusic');
+            if (audio) {
+                audio.play().catch(e => console.log("Audio autoplay restricted:", e));
+            }
+        }
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: {
+                            50: '#f4f7f4',
+                            100: '#e3eae3',
+                            200: '#c7d6c7',
+                            500: '#7a9e7f',
+                            600: '#638568',
+                            800: '#3a503d',
+                        },
+                        blush: {
+                            50: '#fdf8f8',
+                            100: '#f9eded',
+                            200: '#f3d6d6',
+                            300: '#eaafb0',
+                            500: '#d97d81',
+                        },
+                        gold: {
+                            300: '#f3e5ab',
+                            400: '#e6ca65',
+                            500: '#d4af37',
+                            600: '#aa8c2c',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        cursive: ['"Alex Brush"', 'cursive'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body.invitation-locked { overflow: hidden; }
+        #openCover {
+            position: fixed; inset: 0; z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #f4f7f4 0%, #e3eae3 100%);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        #openCover.cover-hidden {
+            opacity: 0;
+            transform: scale(1.05);
+            pointer-events: none;
+        }
+        .floral-border {
+            border: 1px solid #c7d6c7;
+            position: relative;
+        }
+        .floral-border::after {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            border: 1px solid #c7d6c7;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="invitation-locked bg-sage-50 text-gray-800 font-sans antialiased">
+
+    <!-- Cover Section -->
+    <div id="openCover" class="px-4">
+        <div class="max-w-md w-full bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-2xl shadow-xl text-center floral-border">
+            <span class="text-xs uppercase tracking-[0.3em] text-sage-600 block mb-3 font-semibold">Undangan Walimatulurus</span>
+            <h1 class="font-serif text-4xl md:text-5xl text-sage-800 mb-2">Shahira Erna</h1>
+            <span class="font-cursive text-3xl text-gold-600 block my-1">&</span>
+            <h1 class="font-serif text-4xl md:text-5xl text-sage-800 mb-6">Aiman</h1>
+            
+            <p class="text-sm text-gray-600 mb-8 italic">Dengan segala hormatnya menjemput Dato'/Datin/Tuan/Puan/Encik/Cik sekeluarga ke majlis perkahwinan kami.</p>
+            
+            <button onclick="openWeddingInvitation()" class="group relative inline-flex items-center gap-3 px-8 py-4 bg-sage-600 text-white text-sm uppercase tracking-widest rounded-full shadow-md hover:bg-sage-800 transition-all duration-300 transform hover:-translate-y-0.5">
+                <span>Buka Undangan</span>
+                <i class="fa-solid fa-envelope-open text-gold-300 group-hover:rotate-12 transition-transform"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Background Audio (Optional) -->
+    <audio id="bgMusic" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-acoustic-guitar-221.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Main Content Wrapper -->
+    <div class="min-h-screen flex flex-col items-center justify-start">
+        
+        <!-- Hero Header Section -->
+        <header class="w-full max-w-2xl text-center py-16 px-6 bg-white shadow-sm rounded-b-3xl mb-8 relative overflow-hidden">
+            <div class="absolute -top-10 -left-10 w-32 h-32 bg-sage-100 rounded-full opacity-50 blur-2xl"></div>
+            <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-blush-100 rounded-full opacity-50 blur-2xl"></div>
+
+            <p class="text-xs uppercase tracking-[0.25em] text-sage-600 font-semibold mb-4">Majlis Perkahwinan</p>
+            <h2 class="font-serif text-5xl md:text-6xl text-sage-800 mb-3">Shahira Erna & Aiman</h2>
+            <p class="font-cursive text-3xl text-gold-600 mb-6">Sabtu, 20 Disember 2026</p>
+            <div class="w-16 h-[1px] bg-gold-500 mx-auto mb-6"></div>
+            <p class="text-gray-600 text-sm max-w-md mx-auto italic">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya..."</p>
+        </header>
+
+        <!-- Countdown / Date Section -->
+        <section class="w-full max-w-2xl px-6 mb-8">
+            <div class="bg-sage-800 text-white rounded-2xl p-6 shadow-md text-center">
+                <h3 class="font-serif text-2xl mb-2 text-gold-300">Atur Cara Majlis</h3>
+                <p class="text-sm text-sage-100 mb-4">20 Disember 2026 / 10 Jamadilakhir 1448H</p>
+                <div class="grid grid-cols-3 gap-4 border-t border-sage-600 pt-4 text-center">
+                    <div>
+                        <span class="block text-xs uppercase text-gold-300 tracking-wider">Ketibaan Tetamu</span>
+                        <span class="font-serif text-lg">11:00 Pagi</span>
+                    </div>
+                    <div>
+                        <span class="block text-xs uppercase text-gold-300 tracking-wider">Ketibaan Pengantin</span>
+                        <span class="font-serif text-lg">1:00 Petang</span>
+                    </div>
+                    <div>
+                        <span class="block text-xs uppercase text-gold-300 tracking-wider">Majlis Selesai</span>
+                        <span class="font-serif text-lg">4:00 Petang</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="w-full max-w-2xl px-6 mb-8">
+            <div class="bg-white rounded-2xl p-6 shadow-sm text-center floral-border">
+                <div class="w-12 h-12 bg-sage-50 text-sage-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <h3 class="font-serif text-2xl text-sage-800 mb-2">Lokasi Majlis</h3>
+                <p class="font-semibold text-gray-700 text-lg mb-1">Dewan Seri Mawar, Simpang Ampat</p>
+                <p class="text-gray-500 text-sm mb-6">No. 12, Jalan Mawar Utama, 14100 Simpang Ampat, Pulau Pinang</p>
+                
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="https://maps.google.com" target="_blank" class="px-5 py-2.5 bg-sage-600 text-white rounded-full text-sm font-medium hover:bg-sage-800 transition shadow-sm flex items-center gap-2">
+                        <i class="fa-solid fa-map-location-dot"></i> Google Maps
+                    </a>
+                    <a href="https://waze.com" target="_blank" class="px-5 py-2.5 bg-sky-600 text-white rounded-full text-sm font-medium hover:bg-sky-700 transition shadow-sm flex items-center gap-2">
+                        <i class="fa-brands fa-waze"></i> Waze
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="w-full max-w-2xl px-6 mb-12">
+            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm floral-border">
+                <div class="text-center mb-6">
+                    <h3 class="font-serif text-2xl text-sage-800 mb-1">RSVP Kehadiran</h3>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest">Sila sahkan kehadiran anda</p>
+                </div>
+                
+                <form class="space-y-4" onsubmit="event.preventDefault(); alert('Terima kasih! Kehadiran anda telah direkodkan.');">
+                    <div>
+                        <label class="block text-xs uppercase font-semibold text-gray-600 mb-1">Nama Penuh</label>
+                        <input type="text" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-sage-600 text-sm bg-sage-50/30" placeholder="Masukkan nama anda">
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs uppercase font-semibold text-gray-600 mb-1">Status Kehadiran</label>
+                            <select class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-sage-600 text-sm bg-sage-50/30">
+                                <option>Hadir (1 Orang)</option>
+                                <option>Hadir (2 Orang)</option>
+                                <option>Hadir (>2 Orang)</option>
+                                <option>Maaf, Tidak Hadir</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase font-semibold text-gray-600 mb-1">Jumlah Kehadiran</label>
+                            <input type="number" min="1" max="10" value="1" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-sage-600 text-sm bg-sage-50/30">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase font-semibold text-gray-600 mb-1">Ucapan / Doa untuk Pengantin</label>
+                        <textarea rows="3" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-sage-600 text-sm bg-sage-50/30" placeholder="Tuliskan ucapan..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-3 bg-sage-600 text-white rounded-xl text-sm uppercase tracking-widest font-medium hover:bg-sage-800 transition shadow-md">
+                        Hantar RSVP
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer / Contact Info -->
+        <footer class="w-full text-center py-8 text-xs text-gray-500 border-t border-gray-200 bg-white">
+            <p class="mb-1 font-serif text-base text-sage-800">Shahira Erna & Aiman</p>
+            <p>&copy; 2026 Hak Cipta Terpelihara. E-Kad Undangan Perkahwinan.</p>
+        </footer>
+
+    </div>
+</body>
+</html>
